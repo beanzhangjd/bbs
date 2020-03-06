@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" media="all" href="/css/MS/main-9296f9fec4.css">
+	<link rel="stylesheet" href="/css/MS/navbar.css">
+	<link rel="stylesheet" href="/css/setting.css">
+	<link rel="stylesheet" type="text/css" href="/css/kkpager_orange.css" />
+	<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/js/kkpager.js"></script>
+	<script type="text/javascript" src="/js/base.js"></script>
+	<script type="text/javascript">
+        $(function(){
+            showNav()
+			showTitleList()
+			var totalRecords=getNumByTitle()
+            limitInit(limitUtil(totalRecords),totalRecords,"showPostList")
+			$("#label").html(decodeURI(getUrlParam("text")))
+            $("#header").html(decodeURI(getUrlParam("text")))
+			$("title").html(decodeURI(getUrlParam("text")))
+        })
+	</script>
+	<title>??</title>
+</head>
+
+<body class="zh-cn cjk Theme--wow" style="background-color: rgb(35, 26, 19); color: #fff;">
+ <!--页面导航栏部分-->
+ <div class="Subnav">
+	<div class="Container Container--content Container--breadcrumbs">
+		<!--<div class="Breadcrumbs">-->
+				<!--<span class="Breadcrumb"> <a href="/api/showIndex"-->
+											 <!--class="Breadcrumb-content is-active"> <span-->
+						<!--class="Breadcrumb-divider Home"> </span>集团论坛系统-->
+				<!--</a>-->
+				<!--</span>-->
+		<!--</div>-->
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> <a
+						class="Breadcrumb-content is-active" style="cursor:default">
+					<span class="Breadcrumb-divider Home"></span>
+					今日发帖
+						<span id="nav-1"></span>
+				</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"></span>今日结贴
+						<span id="nav-2"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"> </span>现未结贴
+						<span id="nav-3"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMypost"> 
+						<span class="Breadcrumb-divider Home"> </span>我的帖子
+						<span id="nav-4"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMyReply"> 
+						<span class="Breadcrumb-divider Home"> </span>我的回复
+						<span id="nav-5"></span>
+					</a>
+				</span>
+		</div>
+
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showKnowledge"> 
+					<span class="Breadcrumb-divider Home"> </span>知识库
+					<!--<span id="nav-6">88</span>-->
+				</a>
+				</span>
+		</div>
+	</div>
+</div>
+
+	<div class="Navbar is-auto">
+		<nav class="Navbar-desktop">
+			<div class="Navbar-items">
+				<a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" href="/api/showIndex">
+					<div class="Navbar-label">首页</div>
+					<div class="Navbar-icon Navbar-dropdownIcon"></div>
+				</a>
+				<a href="" class="Navbar-item Navbar-link is-noSelect Navbar-shop">
+					<div class="Navbar-label" id="label"></div>
+				</a>
+				<!-- <a href="" class="Navbar-item Navbar-link is-noSelect Navbar-news">
+					<div class="Navbar-label">新闻</div>
+				</a>
+				<a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-esports">
+					<div class="Navbar-label">电子竞技</div>
+					<div class="Navbar-icon Navbar-dropdownIcon"></div>
+				</a> -->
+			</div>
+			<div class="Navbar-profileItems">
+				<input type="text" placeholder="搜索帖子" class="search-box" id="search-in">
+				<div id="search-to"></div>
+				<a href="#" type="button" class="search-bt" id="search-a"><img src="/image/search.png" alt=""></a>
+				<a  class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" href="/api/showSetting">
+					<div class="Navbar-label Navbar-accountUnauthenticated" id="nav-name"></div>
+					<div class="Navbar-icon Navbar-dropdownIcon"></div>
+				</a>
+				<a  class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" onclick="exit()" href="#">
+					<div class="Navbar-label Navbar-accountUnauthenticated">退出</div>
+					<div class="Navbar-icon Navbar-dropdownIcon"></div>
+				</a>
+			</div>
+		</nav>
+	</div>
+
+
+
+
+
+
+
+
+  <div role="main">
+    <section class="Forum" data-forum="{&quot;id&quot;: &quot;2788559&quot;}">
+
+
+      <header class="Forum-header">
+        <div class="Container Container--content">
+          <h1 class="Forum-heading" id="header">
+            ??
+          </h1>
+          <div class="Forum-controls">
+<!--             <button class="Forum-button Forum-button--new" type="button">
+              <span class="Button-content">全部</span>
+            </button>
+            <button class="Forum-button Forum-button--new" type="button">
+              <span class="Button-content">未结贴</span>
+            </button> -->
+            <!--<button id="addPost-bt" class="Forum-button Forum-button&#45;&#45;new" type="button">-->
+              <!--<span class="Button-content">发新帖</span>-->
+            <!--</button>-->
+          </div>
+        </div>
+      </header>
+
+      <div class="Forum-content" data-track="nexus.checkbox" id="forum-topics">
+
+        <div class="Forum-ForumTopicList" id="list">
+          <button class="btn ForumTopic btn-block" style="background-color: rgb(37, 26, 15); color: #fff;">
+            <div class="ForumTopic-details">
+              <span class="ForumTopic-heading">
+                <span class="ForumTopic-title--wrapper">
+                  <span class="ForumTopic-title" data-toggle="tooltip">
+               		     标题
+                  </span>
+                </span>
+              </span>
+              <span class="ForumTopic-author">创建人</span>
+              <span class="ForumTopic-replies">
+                <span>回复数</span>
+              </span>
+              <span class="ForumTopic-timestamp">
+                	帖子创建时间
+              </span>
+              <span class="ForumTopic-timestamp">
+                	最后回复时间
+              </span>
+            </div>
+          </button>
+
+        </div>
+
+		  <div style="margin: 50px" class="Pagination-footer">
+			  <div id="kkpager"></div>
+		  </div>
+      </div>
+    </section>
+
+
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/setting.css">
+    <link rel="stylesheet" media="all" href="/css/MS/navbar.css">
+    <link rel="stylesheet" href="/css/MS/main-9296f9fec4.css">
+    <style type="text/css">
+        .acc-v {
+            display: block;
+            float: left;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            margin: 5px 2px 5px 0px;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+    </style>
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/base.js"></script>
+    <script type="text/javascript" src="/js/wangEditor.js"></script>
+    <title>发表问题</title>
+</head>
+
+<body class="zh-cn cjk Theme--wow" style="background-color: rgb(35, 26, 19); color: #fff;">
+<!--页面导航栏部分-->
+<div class="Subnav">
+	<div class="Container Container--content Container--breadcrumbs">
+		<!--<div class="Breadcrumbs">-->
+				<!--<span class="Breadcrumb"> <a href="/api/showIndex"-->
+											 <!--class="Breadcrumb-content is-active"> <span-->
+						<!--class="Breadcrumb-divider Home"> </span>集团论坛系统-->
+				<!--</a>-->
+				<!--</span>-->
+		<!--</div>-->
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> <a
+						class="Breadcrumb-content is-active" style="cursor:default">
+					<span class="Breadcrumb-divider Home"></span>
+					今日发帖
+						<span id="nav-1"></span>
+				</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"></span>今日结贴
+						<span id="nav-2"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"> </span>现未结贴
+						<span id="nav-3"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMypost"> 
+						<span class="Breadcrumb-divider Home"> </span>我的帖子
+						<span id="nav-4"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMyReply"> 
+						<span class="Breadcrumb-divider Home"> </span>我的回复
+						<span id="nav-5"></span>
+					</a>
+				</span>
+		</div>
+
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showKnowledge"> 
+					<span class="Breadcrumb-divider Home"> </span>知识库
+					<!--<span id="nav-6">88</span>-->
+				</a>
+				</span>
+		</div>
+	</div>
+</div>
+
+<div class="Navbar is-auto">
+    <nav class="Navbar-desktop">
+        <div class="Navbar-items">
+            <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" href="/api/showIndex">
+                <div class="Navbar-label">首页</div>
+                <div class="Navbar-icon Navbar-dropdownIcon"></div>
+            </a>
+            <a id="a-label" href="" class="Navbar-item Navbar-link is-noSelect Navbar-shop">
+                <div class="Navbar-label" id="label"></div>
+            </a>
+            <a href="" class="Navbar-item Navbar-link is-noSelect Navbar-news">
+                <div class="Navbar-label">发新帖</div>
+            </a>
+            <!-- <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-esports">
+                <div class="Navbar-label">电子竞技</div>
+                <div class="Navbar-icon Navbar-dropdownIcon"></div>
+            </a> -->
+        </div>
+        <div class="Navbar-profileItems">
+
+            <a class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" href="/api/showSetting">
+                <div class="Navbar-label Navbar-accountUnauthenticated" id="nav-name"></div>
+                <div class="Navbar-icon Navbar-dropdownIcon"></div>
+            </a>
+            <a class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" onclick="exit()" href="#">
+                <div class="Navbar-label Navbar-accountUnauthenticated">退出</div>
+                <div class="Navbar-icon Navbar-dropdownIcon"></div>
+            </a>
+        </div>
+    </nav>
+</div>
+
+
+<div role="main">
+    <section class="Section Section--secondary">
+        <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
+            <div class="TopicForm-content">
+                <div class="TopicForm-content">
+                    <!--用户头像和部门信息-->
+                    <aside class="TopicForm-author">
+                        <div class="Author" id="" data-topic-post-body-content="true">
+                            <a class="Author-avatar ">
+                                <img id="user-head" src="" alt=""/>
+                            </a>
+                            <div class="Author-details">
+                      <span class="Author-name">
+                        <a id="user-name" class="Author-name--profileLink"></a>
+                      </span>
+
+                                <span class="Author-achievements">
+                        <a class="Author-achievements--link">
+                          <span id="user-company"></span><br>
+                          <span id="user-dept"></span>
+                        </a>
+                      </span>
+                            </div>
+                        </div>
+                    </aside>
+                    <!--回复文本域form表单-->
+                    <form id="add-form" method="post">
+                        <div>
+                            <input id="title" name="title" class="form-control" placeholder="【必填】在这里输入问题标题">
+                        </div>
+                        <br>
+                        <div id="div-text">
+
+                        </div>
+                        <div style="width: 100%">
+                            <div style="display: none;height: 50px" id="accessory">
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div style="width: 100%;display: none;">
+                            <label>
+                                <a>标签：</a><a href="#"></a><span id="tag-span"></span><a href="#" onclick="showAddPag();">添加标签</a>
+                            </label>
+                        </div>
+                        <div class="TopicForm-action--buttons">
+                            <button type="button" class="TopicForm-button TopicForm-button--reply" id="add-submit">
+                                <span class="Button-content">提交</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="tag-div" style="display: none" class="updateDiv">
+    <form class="updatefrom" id="tag-form" action="">
+        <h2 class="form-signin-heading" style="margin-top: 30px">添加标签</h2>
+        <input type="text" id="tag-in" class="form-control" placeholder="在这里输入标签内容" autocomplete="off">
+        <div id="tag-to"></div>
+        <br>
+        <button type="button" onclick="del();" class="TopicForm-button TopicForm-button--reply"
+                style="float: left;margin: 0px 30px;">取消
+        </button>
+        <button type="button" onclick="addTag();" id="save-tag" class="TopicForm-button TopicForm-button--reply"
+                style="float: right;margin: 0px 30px;">保存
+        </button>
+    </form>
+</div>
+
+<script type="text/javascript">
+    var editor;
+    $(function () {
+        showNav()
+
+        var E = window.wangEditor
+        editor = new E('#div-text')
+        editor.customConfig.showLinkImg = false
+        editor.customConfig.uploadImgServer = '/api/uploadImg';
+        editor.customConfig.uploadImgMaxLength = 9;
+        editor.customConfig.uploadFileName = "data";
+        editor.customConfig.menus = [
+            'head',  // 标题
+            'bold',  // 粗体
+            'fontSize',  // 字号
+            'fontName',  // 字体
+            'italic',  // 斜体
+            'underline',  // 下划线
+            'strikeThrough',  // 删除线
+            'foreColor',  // 文字颜色
+            'backColor',  // 背景颜色
+            'link',  // 插入链接
+            'list',  // 列表
+            'justify',  // 对齐方式
+            'quote',  // 引用
+            'table',  // 表格
+            'emoticon',  // 表情
+            'video',  // 插入视频
+            'image',  // 插入图片
+            'code',  // 插入代码
+            'undo',  // 撤销
+            'redo'  // 重复
+        ]
+        editor.create()
+        $.ajax({
+            url: "/api/getModule",
+            data: "id=" + getUrlParam("id"),
+            type: "get",
+            datatype: "json",
+            success: function (obj) {
+                if (obj.state == 1) {
+                    $("#label").html(obj.data.name)
+                    $("#a-label").attr("href", "/api/showPostList?id=" + obj.data.id)
+                }
+            }
+        })
+        $('#tag-in').keyup(function (e) {
+            if(e.keyCode==13){
+                $("#save-tag").click()
+            }
+            var keywords = $(this).val();
+            if (keywords == '') {
+                $('#tag-to').hide();
+                return
+            }
+            $.ajax({
+                url: '/api/getTag?text=' + keywords,
+                dataType: 'json',
+                beforeSend: function () {
+                    $('#tag-to').append('<div>正在加载。。。</div>');
+                },
+                success: function (obj) {
+                    $('#tag-to').empty().show();
+                    if (obj.data == '') {
+                        $('#tag-to').append('<div class="error">找不到相关标签</div>');
+                    }
+                    $.each(obj.data, function () {
+                        $('#tag-to').append('<div class="click_work">' + this + '</div>');
+                    })
+                },
+                error: function () {
+                    $('#tag-to').empty().show();
+                    $('#tag-to').append('<div class="click_work">出现错误</div>');
+                }
+            })
+        })
+        //点击搜索数据复制给搜索框
+        $(document).on('click', '.click_work', function () {
+            var word = $(this).text();
+            $('#tag-in').val(word);
+            $('#tag-to').hide();
+            // $('#texe').trigger('click');触发搜索事件
+        })
+    })
+    $("#add-submit").click(function () {
+
+        addPost()
+    })
+</script>
+</body>
+
+</html>

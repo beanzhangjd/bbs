@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>个人信息</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/MS/main-9296f9fec4.css">
+	<link rel="stylesheet" media="all" href="/css/MS/navbar.css">
+	<link rel="stylesheet" href="/css/setting.css">
+	<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/js/base.js"></script>
+	<script type="text/javascript">
+        $(function(){
+            showNav()
+        })
+	</script>
+
+</head>
+
+<body class="zh-cn cjk Theme--wow" style="background-color: rgb(35, 26, 19); color: #fff;">
+<!--页面导航栏部分-->
+<div class="Subnav">
+	<div class="Container Container--content Container--breadcrumbs">
+		<!--<div class="Breadcrumbs">-->
+				<!--<span class="Breadcrumb"> <a href="/api/showIndex"-->
+											 <!--class="Breadcrumb-content is-active"> <span-->
+						<!--class="Breadcrumb-divider Home"> </span>集团论坛系统-->
+				<!--</a>-->
+				<!--</span>-->
+		<!--</div>-->
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> <a
+						class="Breadcrumb-content is-active" style="cursor:default">
+					<span class="Breadcrumb-divider Home"></span>
+					今日发帖
+						<span id="nav-1"></span>
+				</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"></span>今日结贴
+						<span id="nav-2"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" style="cursor:default"> 
+						<span class="Breadcrumb-divider Home"> </span>现未结贴
+						<span id="nav-3"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs"></div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMypost"> 
+						<span class="Breadcrumb-divider Home"> </span>我的帖子
+						<span id="nav-4"></span>
+					</a>
+				</span>
+		</div>
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showMyReply"> 
+						<span class="Breadcrumb-divider Home"> </span>我的回复
+						<span id="nav-5"></span>
+					</a>
+				</span>
+		</div>
+
+		<div class="Breadcrumbs">
+				<span class="Breadcrumb"> 
+					<a class="Breadcrumb-content is-active" href="/api/showKnowledge"> 
+					<span class="Breadcrumb-divider Home"> </span>知识库
+					<!--<span id="nav-6">88</span>-->
+				</a>
+				</span>
+		</div>
+	</div>
+</div>
+
+<div class="Navbar is-auto">
+	<nav class="Navbar-desktop">
+		<div class="Navbar-items">
+			<a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" href="/api/showIndex">
+				<div class="Navbar-label">首页</div>
+				<div class="Navbar-icon Navbar-dropdownIcon"></div>
+			</a>
+			<a href="/api/showSetting" class="Navbar-item Navbar-link is-noSelect Navbar-shop">
+				<div class="Navbar-label">我的帐户</div>
+			</a>
+			<!-- <a href="" class="Navbar-item Navbar-link is-noSelect Navbar-news">
+                <div class="Navbar-label">新闻</div>
+            </a>
+            <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-esports">
+                <div class="Navbar-label">电子竞技</div>
+                <div class="Navbar-icon Navbar-dropdownIcon"></div>
+            </a> -->
+		</div>
+		<div class="Navbar-profileItems">
+			<input type="text" placeholder="搜索帖子" class="search-box" id="search-in">
+			<div id="search-to"></div>
+			<a href="#" type="button" class="search-bt" id="search-a"><img src="/image/search.png" alt=""></a>
+			<a  class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" href="/api/showSetting">
+				<div class="Navbar-label Navbar-accountUnauthenticated" id="nav-name"></div>
+				<div class="Navbar-icon Navbar-dropdownIcon"></div>
+			</a>
+			<a  class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect" onclick="exit()" href="#">
+				<div class="Navbar-label Navbar-accountUnauthenticated">退出</div>
+				<div class="Navbar-icon Navbar-dropdownIcon"></div>
+			</a>
+		</div>
+	</nav>
+</div>
+
+
+<div class="setting_all">
+
+	<h2 class="sub-header">个人信息</h2>
+	<hr>
+	<div>
+		<h4>您用于登录的手机号</h4>
+		<br>
+		<span id="user-phone"></span>
+		<hr>
+	</div>
+	<div>
+		<h4>您用于登录的密码</h4>
+		<br>
+		<span id="user-pwd">**********</span>
+		<div class="bt">
+			<a href="javascript:void(0);" onclick="showUpdatePwd();">修改</a>
+		</div>
+		<hr>
+	</div>
+	<div>
+		<h4>您显示的姓名</h4>
+		<br>
+		<span id="user-name"></span>
+
+		<div class="bt">
+			<a href="javascript:void(0);" onclick="showUpdateName();" >修改</a>
+		</div>
+		<hr>
+	</div>
+	<div>
+		<h4>您显示的头像</h4>
+		<br>
+		<span><img alt="" id="user-head" src="" width="50px"></span>
+		<div class="bt">
+			<a href="javascript:void(0);" onclick="showUpdateHead();">修改</a>
+		</div>
+		<hr>
+	</div>
+	<div>
+		<h4>您显示的公司</h4>
+		<br>
+		<span id="deptall">
+	      <span id="user-company"></span>
+	      <span id="user-dept"></span> 
+      </span>
+
+		<!--<div class="bt">-->
+			<!--<a href="javascript:void(0);" onclick="showUpdateDept();">修改</a>-->
+		<!--</div>-->
+		<hr>
+	</div>
+
+
+	<div id="update-pwd" style="display: none;" class="updateDiv">
+		<form class="updatefrom" id='pwd-form' action='api/reset' style='padding: 20px 20px 40px 20px;'>
+			<h2 class="form-signin-heading">修改密码</h2>
+			<input type="password" name="oldpwd" id="oldpwd" class="form-control" placeholder="请输入旧密码"><br>
+			<input type="password" name="newpwd" id="newpwd" class="form-control" placeholder="请输入新密码">
+			<p id="pwd_p" class="check_p">&nbsp;</p>
+			<input type="password" id="check" class="form-control" placeholder="请再次确认密码">
+			<p id="cpwd_p" class="check_p">&nbsp;</p>
+			<button type="button" onclick="del();" class="TopicForm-button TopicForm-button--reply" style="float: left; margin: 0px 30px;">
+				<span class="Button-content">取消</span>
+			</button>
+			<button type="button" onclick="savePwd();" class="TopicForm-button TopicForm-button--reply" style="float: right; margin: 0px 30px;">
+				<span class="Button-content">提交</span>
+			</button>
+		</form>
+	</div>
+	<div id="update-name" style="display: none;" class="updateDiv">
+		<form class="updatefrom" id="name-form">
+			<h2 class="form-signin-heading" style="margin-top: 30px">修改姓名</h2>
+			<input type="text" name="name" id="iname" class="form-control" autocomplete="off">
+			<br>
+			<button type="button"  onclick="del();" class="TopicForm-button TopicForm-button--reply" style="float: left;margin: 0px 30px;">取消</button>
+			<button type="button" onclick="saveName();" class="TopicForm-button TopicForm-button--reply" style="float: right;margin: 0px 30px;">保存</button>
+		</form>
+	</div>
+	<!--<div id="update-dept" style="display: none;" class="updateDiv">-->
+		<!--<form class="updatefrom" id="dept-form">-->
+			<!--<h2 class="form-signin-heading">修改部门</h2>-->
+			<!--<div>-->
+				<!--&lt;!&ndash;公司部门下拉选&ndash;&gt;-->
+				<!--<div id="t_se" style="color: #000;">-->
+					<!--<select id="select_1" name="company" class="select_all" style="color: #000;height: 34px;padding: 2px 15px;">-->
+					<!--</select>-->
+					<!--<select id="select_2" name="dept" class="select_all" style="color: #000;height: 34px;padding: 2px 15px;">-->
+						<!--<option>- - 部门 - -</option>-->
+					<!--</select>-->
+					<!--<script type="text/javascript">-->
+                        <!--$("#select_1").change(function(){-->
+                            <!--showDeptByCompany()-->
+                        <!--})-->
+					<!--</script>-->
+				<!--</div>-->
+				<!--<br>-->
+				<!--<div>-->
+					<!--<label>-->
+						<!--<input type="checkbox" id="t_box" value="" style="display: inline;"> 外部单位-->
+					<!--</label>-->
+				<!--</div>-->
+				<!--<br>-->
+			<!--</div>-->
+			<!--<button type="button" onclick="del();" class="TopicForm-button TopicForm-button&#45;&#45;reply"-->
+					<!--style="float: left; margin: 0px 30px;">取消</button>-->
+			<!--<button type="button" onclick="saveDept();" class="TopicForm-button TopicForm-button&#45;&#45;reply"-->
+					<!--style="float: right; margin: 0px 30px;">保存</button>-->
+		<!--</form>-->
+	<!--</div>-->
+	<div id="update-head" style="display: none;" class="updateDiv">
+
+	</div>
+</div>
+<script type="text/javascript">
+	// $("#oldpwd").keydown(function () {
+	// 	checkPwdLength($("#oldpwd").val().length)
+    // })
+	$("#newpwd").keyup(function () {
+		checkPwdLength($("#newpwd").val().length)
+    })
+	$("#check").keyup(function () {
+		checkPwdG($("#newpwd").val(),$("#check").val())
+    })
+
+</script>
+</body>
+</html>

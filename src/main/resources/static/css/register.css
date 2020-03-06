@@ -1,0 +1,26 @@
+.register_all{
+  width: 500px;
+  margin: 0px auto;
+}
+
+#check_code{
+  width: 323px;
+  display: inline;
+}
+
+.select_all{
+  height: 34px;
+  padding: 2px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.check_p{
+  float: right;
+}
+

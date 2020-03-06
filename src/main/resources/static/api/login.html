@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>登录</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../css/MS/main-9296f9fec4.css">
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+window.onkeydown = function(){
+    if (event.keyCode===13){
+        document.getElementById("btn").click();
+    }
+}
+</script>
+</head>
+
+<body class="zh-cn cjk Theme--wow"
+	style="background-color: rgb(35, 26, 19); color: #fff;">
+	<div class="login_all">
+		<!--登录form表单-->
+		<form action="" method="POST" id="form-login" class="form-signin"
+			style="padding: 40px 20px 40px 20px; border: 2px solid #353E9E;">
+			<!--头部logo部分-->
+			<h2 class="form-signin-heading">河南明泰</h2>
+
+			<!--文本框-->
+			<div class="login_input">
+				<div>
+					<input type="text" name="phone" id="phone" class="form-control"
+						placeholder="请输入手机号" autocomplete="off">
+					<p id="phone_p">&nbsp;</p>
+				</div>
+				<div>
+					<input type="password" name="password" id="password"
+						class="form-control" placeholder="请输入密码">
+					<p id="pwd_p">&nbsp;</p>
+				</div>
+			</div>
+			<!--记住密码和忘记密码-->
+			<div class="checkbox">
+				<label> <input type="checkbox" id="t-box" value="" checked="checked">
+					记住手机号
+				</label> <a style="display: none;" href="/showUpdatePwd" class="forget">忘记密码</a>
+			</div>
+			<br>
+			<!--登录和注册-->
+			<div class="TopicForm-action--buttons">
+				<button type="button" id="btn"
+					class="TopicForm-button TopicForm-button--reply"
+					style="margin: 0px auto;">
+					<span class="Button-content">登录</span>
+				</button>
+			</div>
+			<div style="text-align: center">
+				<a href="/showRegister">点击注册新帐号</a>
+			</div>
+		</form>
+	</div>
+
+	<script>
+		$(function () {
+			if($.cookie("phone")){
+				$("#phone").val($.cookie("phone"))
+			}
+		})		
+
+
+		$("#phone").keyup(function () {
+			var phoneVal = $("#phone").val()
+			var reg = /^[1][3,4,5,7,8][0-9]{9}$/
+			if (reg.test(phoneVal)) {
+				$("#phone_p").html("&nbsp;")
+
+			} else {
+				$("#phone_p").html("请输入正确的手机号").css("color", "red")
+			}
+		})
+		$("#password").keyup(function () {
+			var len = $("#password").val().length
+			if (len < 6 || len > 16) {
+				$("#pwd_p").html("请输入6-16位的密码").css("color", "red")
+			} else {
+				$("#pwd_p").html("&nbsp;")
+			}
+		})
+
+		$("#btn").click(function () {
+			if ($("#phone").val() == "" || $("#phone").val().length == 0) {
+				alert("手机号不可为空")
+				return;
+			}
+			if ($("#password").val() == "" || $("#password").val().length == 0) {
+				alert("密码不可为空")
+				return false;
+			}
+			var reg = /^[1][3,4,5,7,8][0-9]{9}$/
+			if (reg.test($("#phone").val())&& $("#password")) {
+				$.ajax({
+					url: "login",
+					data: $("#form-login").serialize(),
+					type: "post",
+					dataType: "JSON",
+					success: function (obj) {
+						//alert(obj.message)
+						if (obj.state == 1) {
+							if($("#t-box").prop("checked")){
+								$.cookie('phone', $("#phone").val(), { expires: 7 })
+							}else{
+								$.cookie('phone',"", { expires: -1 })
+							}
+							document.cookie = "Authority=" + obj.data
+							location = "/api/showIndex"
+						} else {
+                            alert("手机号或密码错误")
+							$("#password").html("")
+						}
+					}
+				})
+			} else {
+				alert("手机号或密码格式错误")
+			}
+		})
+	</script>
+</body>
+
+</html>

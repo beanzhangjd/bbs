@@ -1,0 +1,14 @@
+.login_all{
+  width: 400px;
+  margin: 130px auto;
+}
+.forget{
+  display: block;
+  float: right;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}

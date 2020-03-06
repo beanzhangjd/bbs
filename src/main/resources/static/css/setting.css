@@ -1,0 +1,103 @@
+.seek {
+	margin: 8px;
+	width: 380px;
+}
+
+#seek {
+	height: 33px;
+	margin: 8px;
+}
+
+.setting_all {
+	width: 1000px;
+	margin: 70px auto;
+}
+
+.set_data {
+	float: right;
+}
+
+.bt {
+	float: right;
+}
+
+.end {
+	text-align: center;
+}
+
+.updatefrom {
+	background-color: rgb(35, 26, 19);
+	border: 2px solid #353E9E;
+	width: 400px;
+	position: fixed;
+	top: 100px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 20px 60px 20px;
+}
+.updateDiv{
+	position: fixed;
+	z-index:10002;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.3);
+}
+#tag-to{
+	 position: fixed;
+	 width: 357px;
+	 height: auto;
+	 background-color: rgba(255,255,255,0.8);
+	 border: 2px solid rgba(255,255,255,0.3);
+	 border-radius: 4px;
+	 display: none;
+ }
+#search-to{
+	position: absolute;
+	width: 285px;
+	height: auto;
+	background-color: rgb(35, 26, 19);
+	border: 2px solid rgba(255,255,255,0.3);
+	border-radius: 3px;
+	display: none;
+}
+.click_work{
+	padding: 3px;
+	font-weight:lighter;
+	cursor:pointer;/*鼠标放上变成小手*/
+}
+.click_work:hover{
+	color: orange;
+	background-color: gray;
+}
+.error{
+	color: gray;
+	cursor:pointer;/*鼠标放上变成小手*/
+}
+
+#star-ul li{
+	float:left;
+	list-style:none;
+	cursor:pointer;/*鼠标放上变成小手*/
+}
+.star-li-off{
+	color: #bfbfbf;
+	width: 48px;
+	height: 48px;
+	text-align: center;
+	line-height:48px;
+	background-image: url("/image/evaluate0.png");
+}
+.star-li-on{
+	color: #f4ea2a;
+	width: 48px;
+	height: 48px;
+	text-align: center;
+	line-height:48px;
+	background-image: url("/image/evaluate1.png");
+}
+
+
